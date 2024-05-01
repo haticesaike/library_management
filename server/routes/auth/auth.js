@@ -12,12 +12,9 @@ const saltRounds = 10;
 
 /**
  * @swagger
- * tags:
- * name: Register
- * description: Register API
  * /auth/register:
  *  post:
- *    tags: [Register]
+ *    tags: [Auth]
  *    summary: Register a new user
  *    requestBody:
  *      required: true
@@ -64,4 +61,55 @@ userRouter.route("/register").post(async (req, res) => {
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
   res.json({ token });
 });
+
+/**
+ * @swagger
+ * /auth/login:
+ *  post:
+ *    tags: [Auth]
+ *    summary: Login a user
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              email:
+ *                type: string
+ *              password:
+ *                type: string
+ *                example: password
+ *                description: Password of the user
+ *                required: true
+ *                minLength: 6
+ *                maxLength: 12
+ *    responses:
+ *      200:
+ *        description: User logged in successfully
+ *      400:
+ *        description: Invalid email or password
+ */
+userRouter.route("/login").post(async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email: email,
+    },
+  });
+  if (!user) {
+    return res.status(400).json({ error: "Invalid email or password" });
+  }
+
+  const validPassword = await bcrypt.compare(password, user.password);
+  if (!validPassword) {
+    return res.status(400).json({ error: "Invalid email or password" });
+  }
+
+  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+  res.json({ token });
+});
+
 export default userRouter;
+
