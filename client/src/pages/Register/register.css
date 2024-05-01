@@ -1,0 +1,72 @@
+
+* {
+    box-sizing: border-box;
+}
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: steelblue;
+    color: #fff;
+}
+.container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 60px 40px;
+    border-radius: 5px;
+}
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.container a {
+    text-decoration: none;
+    color: lightblue;
+}
+.form-control {
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.label {
+    font-size: 18px;
+    height: 20px;
+}
+.input {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+.form-control input:focus,
+.form-control input:valid {
+    border-bottom-color: lightblue;
+    outline: none;
+}
+
+.button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    background-color: lightblue;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.button:active {
+    transform: scale(0.98);
+}
+.login-link {
+    color: lightblue;
+    text-decoration: none;
+}

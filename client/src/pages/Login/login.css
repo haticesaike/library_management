@@ -1,0 +1,85 @@
+/* Base CSS reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    vertical-align: baseline;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+
+
+
+
+/* Specific Styles */
+.body {
+    color: #fff;
+    background-color: steelblue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 60px 40px;
+    border-radius: 5px;
+}
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-control {
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.label {
+    font-size: 18px;
+    height: 20px;
+}
+.input {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+.form-control input:focus,
+.form-control input:valid {
+    border-bottom-color: lightblue;
+    outline: none;
+}
+.button {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    background-color: lightblue;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.button:active {
+    transform: scale(0.98);
+}
